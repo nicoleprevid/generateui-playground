@@ -1,0 +1,51 @@
+
+<div class="page">
+  <ui-card title="RegionByRegion" subtitle="GET /region/{region}">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-grid">
+        <ui-field label="Region">
+          <input type="text" formControlName="region" placeholder="Region" />
+        </ui-field>
+        <ui-field label="Fields">
+          <input type="text" formControlName="fields" placeholder="name,population,region,flags" />
+        </ui-field>
+      </div>
+      <div class="actions">
+        <ui-button type="submit" variant="primary">
+          Buscar
+        </ui-button>
+      </div>
+    </form>
+  </ui-card>
+
+  <div class="result-table" *ngIf="isArrayResult()">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th *ngFor="let column of getColumns()">
+            {{ formatHeader(column) }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of getRows()">
+          <td *ngFor="let column of getColumns()">
+            <img
+              *ngIf="isImageCell(row, column)"
+              [src]="getCellValue(row, column)"
+              [alt]="formatHeader(column)"
+              class="cell-image"
+            />
+            <span *ngIf="!isImageCell(row, column)">
+              {{ getCellValue(row, column) }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <pre class="result" *ngIf="!isArrayResult() && result">
+{{ result | json }}
+  </pre>
+</div>

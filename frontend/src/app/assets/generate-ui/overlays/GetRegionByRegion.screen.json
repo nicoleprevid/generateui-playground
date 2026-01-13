@@ -1,0 +1,28 @@
+{
+  "entity": "RegionByRegion",
+  "screen": {
+    "type": "view",
+    "mode": "readonly"
+  },
+  "api": {
+    "operationId": "GetRegionByRegion",
+    "endpoint": "/region/{region}",
+    "method": "get",
+    "baseUrl": "https://restcountries.com/v3.1",
+    "queryParams": [
+      {
+        "name": "fields",
+        "type": "string",
+        "required": false,
+        "label": "Fields",
+        "placeholder": "name,population,region,flags"
+      }
+    ]
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {},
+  "data": {}
+}
