@@ -1,0 +1,78 @@
+[
+  {
+    "path": "Login",
+    "operationId": "Login"
+  },
+  {
+    "path": "CreateUser",
+    "operationId": "CreateUser"
+  },
+  {
+    "path": "GetCurrentUser",
+    "operationId": "GetCurrentUser"
+  },
+  {
+    "path": "UpdateCurrentUser",
+    "operationId": "UpdateCurrentUser"
+  },
+  {
+    "path": "GetProfileByUsername",
+    "operationId": "GetProfileByUsername"
+  },
+  {
+    "path": "FollowUserByUsername",
+    "operationId": "FollowUserByUsername"
+  },
+  {
+    "path": "UnfollowUserByUsername",
+    "operationId": "UnfollowUserByUsername"
+  },
+  {
+    "path": "GetArticlesFeed",
+    "operationId": "GetArticlesFeed"
+  },
+  {
+    "path": "GetArticles",
+    "operationId": "GetArticles"
+  },
+  {
+    "path": "CreateArticle",
+    "operationId": "CreateArticle"
+  },
+  {
+    "path": "GetArticle",
+    "operationId": "GetArticle"
+  },
+  {
+    "path": "UpdateArticle",
+    "operationId": "UpdateArticle"
+  },
+  {
+    "path": "DeleteArticle",
+    "operationId": "DeleteArticle"
+  },
+  {
+    "path": "GetArticleComments",
+    "operationId": "GetArticleComments"
+  },
+  {
+    "path": "CreateArticleComment",
+    "operationId": "CreateArticleComment"
+  },
+  {
+    "path": "DeleteArticleComment",
+    "operationId": "DeleteArticleComment"
+  },
+  {
+    "path": "CreateArticleFavorite",
+    "operationId": "CreateArticleFavorite"
+  },
+  {
+    "path": "DeleteArticleFavorite",
+    "operationId": "DeleteArticleFavorite"
+  },
+  {
+    "path": "GetTags",
+    "operationId": "GetTags"
+  }
+]

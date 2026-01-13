@@ -1,0 +1,28 @@
+
+<div class="page">
+  <ui-card title="Article" subtitle="PUT /articles/{slug}">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-grid">
+        <ui-field label="Slug">
+          <input type="text" formControlName="slug" placeholder="Slug" />
+        </ui-field>
+        <ui-field label="Title">
+          <input type="text" formControlName="title" placeholder="Title" />
+        </ui-field>
+        <ui-field label="Description">
+          <textarea rows="4" formControlName="description" placeholder="Description"></textarea>
+        </ui-field>
+        <ui-field label="Body">
+          <textarea rows="4" formControlName="body" placeholder="Body"></textarea>
+        </ui-field>
+      </div>
+      <div class="actions">
+        <ui-button type="submit" variant="primary">
+          Salvar
+        </ui-button>
+      </div>
+    </form>
+  </ui-card>
+
+  <pre class="result" *ngIf="result">{{ result | json }}</pre>
+</div>

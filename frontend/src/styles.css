@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-page: #f5f7fb;
+  --bg-card: #ffffff;
+
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --color-primary: #6366f1;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  --shadow-card: 
+    0 10px 25px rgba(0, 0, 0, 0.06),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* reset mínimo */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-page);
+  color: var(--color-text);
+}

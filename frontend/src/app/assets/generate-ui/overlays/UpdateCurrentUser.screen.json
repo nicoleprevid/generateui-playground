@@ -1,0 +1,54 @@
+{
+  "entity": "UpdateCurrentUser",
+  "screen": {
+    "type": "form",
+    "mode": "create"
+  },
+  "api": {
+    "operationId": "UpdateCurrentUser",
+    "endpoint": "/users",
+    "method": "post",
+    "submit": {
+      "wrap": "user"
+    }
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [
+    {
+      "name": "username",
+      "type": "string",
+      "required": true,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "validations": []
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "required": true,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "validations": []
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "required": true,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "validations": []
+    }
+  ],
+  "actions": {
+    "primary": {
+      "type": "submit",
+      "label": "Criar"
+    }
+  },
+  "data": {}
+}

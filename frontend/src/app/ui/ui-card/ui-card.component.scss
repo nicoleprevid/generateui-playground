@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.ui-card {
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  padding: 20px;
+}
+
+.ui-card__header {
+  margin-bottom: 16px;
+}
+
+.ui-card__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ui-card__subtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #64748b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

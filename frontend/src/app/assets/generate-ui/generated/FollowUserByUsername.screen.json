@@ -1,0 +1,23 @@
+{
+  "entity": "FollowUserByUsername",
+  "screen": {
+    "type": "form",
+    "mode": "create"
+  },
+  "api": {
+    "operationId": "FollowUserByUsername",
+    "endpoint": "/profiles/{username}/follow",
+    "method": "post"
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {
+    "primary": {
+      "type": "submit",
+      "label": "Criar"
+    }
+  },
+  "data": {}
+}

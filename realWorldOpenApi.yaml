@@ -535,14 +535,8 @@ components:
     NewArticle:
       required:
         - body
-        - description
-        - title
       type: object
       properties:
-        title:
-          type: string
-        description:
-          type: string
         body:
           type: string
         tagList:

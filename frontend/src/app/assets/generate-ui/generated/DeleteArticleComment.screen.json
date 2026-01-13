@@ -1,0 +1,18 @@
+{
+  "entity": "DeleteArticleComment",
+  "screen": {
+    "type": "view",
+    "mode": "readonly"
+  },
+  "api": {
+    "operationId": "DeleteArticleComment",
+    "endpoint": "/articles/{slug}/comments/{id}",
+    "method": "delete"
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {},
+  "data": {}
+}

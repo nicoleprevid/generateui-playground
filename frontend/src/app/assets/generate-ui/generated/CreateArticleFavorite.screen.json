@@ -1,0 +1,23 @@
+{
+  "entity": "ArticleFavorite",
+  "screen": {
+    "type": "form",
+    "mode": "create"
+  },
+  "api": {
+    "operationId": "CreateArticleFavorite",
+    "endpoint": "/articles/{slug}/favorite",
+    "method": "post"
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {
+    "primary": {
+      "type": "submit",
+      "label": "Criar"
+    }
+  },
+  "data": {}
+}

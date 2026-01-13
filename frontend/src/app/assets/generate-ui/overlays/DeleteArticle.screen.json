@@ -1,0 +1,18 @@
+{
+  "entity": "DeleteArticle",
+  "screen": {
+    "type": "view",
+    "mode": "readonly"
+  },
+  "api": {
+    "operationId": "DeleteArticle",
+    "endpoint": "/articles/{slug}",
+    "method": "delete"
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {},
+  "data": {}
+}

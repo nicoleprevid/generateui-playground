@@ -1,0 +1,25 @@
+
+<div class="page">
+  <ui-card title="User" subtitle="POST /users">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-grid">
+        <ui-field label="Username">
+          <input type="text" formControlName="username" placeholder="Username" />
+        </ui-field>
+        <ui-field label="Email">
+          <input type="text" formControlName="email" placeholder="Email" />
+        </ui-field>
+        <ui-field label="Password">
+          <input type="text" formControlName="password" placeholder="Password" />
+        </ui-field>
+      </div>
+      <div class="actions">
+        <ui-button type="submit" variant="primary">
+          Criar
+        </ui-button>
+      </div>
+    </form>
+  </ui-card>
+
+  <pre class="result" *ngIf="result">{{ result | json }}</pre>
+</div>

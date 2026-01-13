@@ -1,0 +1,9 @@
+<section class="ui-card">
+  <header class="ui-card__header" *ngIf="title || subtitle">
+    <h2 class="ui-card__title" *ngIf="title">{{ title }}</h2>
+    <p class="ui-card__subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+  </header>
+  <div class="ui-card__body">
+    <ng-content></ng-content>
+  </div>
+</section>
