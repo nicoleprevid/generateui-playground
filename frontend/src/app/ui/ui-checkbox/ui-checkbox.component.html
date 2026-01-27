@@ -1,0 +1,26 @@
+<label class="ui-control">
+  <span class="ui-control__label" *ngIf="label">
+    {{ label }}
+    <button
+      class="ui-control__info"
+      type="button"
+      *ngIf="info"
+      (click)="toggleInfo($event)"
+      [attr.aria-expanded]="infoOpen"
+    >
+      i
+    </button>
+  </span>
+  <div class="ui-control__info-panel" *ngIf="info && infoOpen">
+    {{ info }}
+  </div>
+  <div class="ui-control__checkbox-row">
+    <input
+      class="ui-control__checkbox"
+      type="checkbox"
+      [formControlName]="controlName"
+      [class.invalid]="invalid"
+    />
+  </div>
+  <span class="ui-control__hint" *ngIf="hint && !info">{{ hint }}</span>
+</label>

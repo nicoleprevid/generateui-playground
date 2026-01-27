@@ -1,0 +1,25 @@
+<label class="ui-control">
+  <span class="ui-control__label" *ngIf="label">
+    {{ label }}
+    <button
+      class="ui-control__info"
+      type="button"
+      *ngIf="info"
+      (click)="toggleInfo($event)"
+      [attr.aria-expanded]="infoOpen"
+    >
+      i
+    </button>
+  </span>
+  <div class="ui-control__info-panel" *ngIf="info && infoOpen">
+    {{ info }}
+  </div>
+  <textarea
+    class="ui-control__input"
+    [formControlName]="controlName"
+    [rows]="rows"
+    [placeholder]="placeholder"
+    [class.invalid]="invalid"
+  ></textarea>
+  <span class="ui-control__hint" *ngIf="hint && !info">{{ hint }}</span>
+</label>

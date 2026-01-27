@@ -1,8 +1,0 @@
-{
-  "endpoint": "/users/login",
-  "method": "post",
-  "fields": [
-    { "name": "email", "type": "string", "required": true },
-    { "name": "password", "type": "string", "required": true }
-  ]
-}

@@ -4,13 +4,16 @@
 
 .ui-field {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   font-size: 13px;
-  color: #334155;
+  color: #1f2937;
 }
 
 .ui-field__label {
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 1.4;
+  word-break: break-word;
+  letter-spacing: 0.01em;
 }
 
 .ui-field__hint {
@@ -18,22 +21,81 @@
   font-size: 12px;
 }
 
-input,
-textarea,
-select {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  padding: 10px 12px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+.ui-field__info {
+  margin-left: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  background: #ffffff;
+  color: #475569;
+  font-size: 11px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+.ui-field__info:hover {
+  background: #f8fafc;
+}
+
+.ui-field__info-panel {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+:host ::ng-deep input,
+:host ::ng-deep textarea {
+  width: 100%;
+  min-height: 3.4rem;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  padding: 0.9rem 1.1rem;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: none;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+:host ::ng-deep input:focus,
+:host ::ng-deep textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+  transform: translateY(-1px);
+}
+
+:host ::ng-deep input.invalid,
+:host ::ng-deep textarea.invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.18);
+}
+
+:host ::ng-deep input::placeholder,
+:host ::ng-deep textarea::placeholder {
+  color: #94a3b8;
+}
+
+:host ::ng-deep input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 6px;
+  box-shadow: none;
+  accent-color: var(--color-primary);
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: -4px;
 }

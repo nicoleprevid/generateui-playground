@@ -1,5 +1,19 @@
 <label class="ui-field">
-  <span class="ui-field__label" *ngIf="label">{{ label }}</span>
+  <span class="ui-field__label" *ngIf="label">
+    {{ label }}
+    <button
+      class="ui-field__info"
+      type="button"
+      *ngIf="info"
+      (click)="toggleInfo($event)"
+      [attr.aria-expanded]="infoOpen"
+    >
+      i
+    </button>
+  </span>
+  <div class="ui-field__info-panel" *ngIf="info && infoOpen">
+    {{ info }}
+  </div>
   <ng-content></ng-content>
-  <span class="ui-field__hint" *ngIf="hint">{{ hint }}</span>
+  <span class="ui-field__hint" *ngIf="hint && !info">{{ hint }}</span>
 </label>

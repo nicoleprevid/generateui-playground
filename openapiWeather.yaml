@@ -1,0 +1,113 @@
+openapi: 3.0.3
+
+info:
+  title: Open-Meteo Weather API (Unofficial OpenAPI)
+  version: 1.0.0
+  description: |
+    Especificação OpenAPI para a API pública Open-Meteo,
+    que entrega dados de previsão do tempo sem necessidade de chave.
+
+servers:
+  - url: https://api.open-meteo.com/v1
+    description: Open-Meteo Public API
+
+tags:
+  - name: Weather
+    description: Operações de previsão do tempo
+
+paths:
+  /forecast:
+    get:
+      tags:
+        - Weather
+      summary: Obter previsão do tempo por coordenadas
+      description: |
+        Retorna previsão do tempo, incluindo temperatura e vento, com base na latitude e longitude fornecidas.
+      parameters:
+        - name: latitude
+          in: query
+          required: true
+          description: Latitude da localização
+          schema:
+            type: number
+            format: float
+            example: 52.52
+        - name: longitude
+          in: query
+          required: true
+          description: Longitude da localização
+          schema:
+            type: number
+            format: float
+            example: 13.41
+        - name: current_weather
+          in: query
+          required: false
+          description: Retorna condições climáticas atuais
+          schema:
+            type: boolean
+            default: true
+        - name: hourly
+          in: query
+          required: false
+          description: Retorna dados horários, como temperatura e umidade
+          schema:
+            type: string
+            example: temperature_2m,relative_humidity_2m
+      responses:
+        "200":
+          description: Previsão do tempo retornada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherResponse'
+        "400":
+          description: Parâmetro inválido
+
+components:
+  schemas:
+
+    WeatherResponse:
+      type: object
+      properties:
+        latitude:
+          type: number
+        longitude:
+          type: number
+        generationtime_ms:
+          type: number
+          description: Tempo de geração da resposta em ms
+        utc_offset_seconds:
+          type: integer
+        timezone:
+          type: string
+        current_weather:
+          type: object
+          properties:
+            temperature:
+              type: number
+              description: Temperatura atual em °C
+            windspeed:
+              type: number
+              description: Velocidade do vento em km/h
+            winddirection:
+              type: number
+              description: Direção do vento em graus
+            time:
+              type: string
+              description: Timestamp da leitura atual
+        hourly:
+          type: object
+          properties:
+            time:
+              type: array
+              items:
+                type: string
+            temperature_2m:
+              type: array
+              items:
+                type: number
+            relative_humidity_2m:
+              type: array
+              items:
+                type: number

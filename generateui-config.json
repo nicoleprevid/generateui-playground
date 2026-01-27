@@ -1,0 +1,7 @@
+{
+  "appTitle": "Rick & Morty Admin",
+  "defaultRoute": "ListCharacters",
+  "menu": {
+    "autoInject": true
+  }
+}

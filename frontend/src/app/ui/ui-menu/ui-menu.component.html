@@ -1,0 +1,40 @@
+<nav class="ui-menu">
+  <div class="ui-menu__brand">
+    <span class="ui-menu__brand-pill"></span>
+    <span class="ui-menu__brand-title">{{ title }}</span>
+  </div>
+
+  <ng-container *ngFor="let group of menu.groups">
+    <section
+      class="ui-menu__group"
+      *ngIf="!group.hidden && group.items.length"
+    >
+      <h3 class="ui-menu__group-title">{{ group.label }}</h3>
+      <a
+        class="ui-menu__item"
+        *ngFor="let item of group.items"
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [class.hidden]="item.hidden"
+      >
+        {{ item.label }}
+      </a>
+    </section>
+  </ng-container>
+
+  <section
+    class="ui-menu__group"
+    *ngIf="menu.ungrouped.length"
+  >
+    <h3 class="ui-menu__group-title">Outros</h3>
+    <a
+      class="ui-menu__item"
+      *ngFor="let item of menu.ungrouped"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [class.hidden]="item.hidden"
+    >
+      {{ item.label }}
+    </a>
+  </section>
+</nav>

@@ -1,0 +1,251 @@
+openapi: 3.0.3
+info:
+  title: Rick and Morty API (Unofficial OpenAPI)
+  version: 1.0.0
+  description: |
+    Especificação OpenAPI para a API pública Rick and Morty,
+    que retorna dados de personagens, episódios e localizações
+    sem necessidade de chave.
+
+servers:
+  - url: https://rickandmortyapi.com/api
+    description: API pública Rick and Morty
+
+tags:
+  - name: Characters
+    description: Personagens
+  - name: Episodes
+    description: Episódios
+  - name: Locations
+    description: Localizações
+
+paths:
+
+  /character:
+    get:
+      tags:
+        - Characters
+      summary: Listar personagens
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+          description: Página da lista
+      responses:
+        "200":
+          description: Lista de personagens
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterResponse'
+
+  /character/{id}:
+    get:
+      tags:
+        - Characters
+      summary: Buscar personagem por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Personagem encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+
+  /episode:
+    get:
+      tags:
+        - Episodes
+      summary: Listar episódios
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Lista de episódios
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EpisodeResponse'
+
+  /episode/{id}:
+    get:
+      tags:
+        - Episodes
+      summary: Buscar episódio por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Episódio encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Episode'
+
+  /location:
+    get:
+      tags:
+        - Locations
+      summary: Listar localizações
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Lista de localizações
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationResponse'
+
+  /location/{id}:
+    get:
+      tags:
+        - Locations
+      summary: Buscar localização por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Localização encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Location'
+
+components:
+
+  schemas:
+
+    Character:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+        species:
+          type: string
+        type:
+          type: string
+        gender:
+          type: string
+        origin:
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+        location:
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+        image:
+          type: string
+        episode:
+          type: array
+          items:
+            type: string
+
+    CharacterResponse:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            count:
+              type: integer
+            pages:
+              type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Character'
+
+    Episode:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        air_date:
+          type: string
+        episode:
+          type: string
+        characters:
+          type: array
+          items:
+            type: string
+
+    EpisodeResponse:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            count:
+              type: integer
+            pages:
+              type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Episode'
+
+    Location:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+        dimension:
+          type: string
+        residents:
+          type: array
+          items:
+            type: string
+
+    LocationResponse:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            count:
+              type: integer
+            pages:
+              type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'

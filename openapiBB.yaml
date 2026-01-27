@@ -1,0 +1,328 @@
+openapi: 3.0.0
+info:
+  title: Qualidade SR APIs
+  version: 1.0.0
+
+paths:
+  /v2/sr002/buscar-conta-pf:
+    get:
+      summary: Buscar pessoa fisica
+      operationId: SearchAccountOfPhysicalController_searchPhysicalPersons
+      tags: [sr002 - search account of physical]
+      parameters:
+        - name: quantidade
+          in: query
+          schema:
+            type: number
+        - name: maisNovoQue
+          in: query
+          schema:
+            type: number
+        - name: maisVelhoQue
+          in: query
+          schema:
+            type: number
+        - name: sexo
+          in: query
+          schema:
+            type: string
+            enum: ["M", "F", "'M', 'F'", ""]
+        - $ref: '#/components/parameters/HeadersQualidade'
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchPFResponse'
+
+  /v2/sr003/gerar-digito-verificador:
+    post:
+      summary: Gerar dígito verificador
+      operationId: GenerateVerifierDigitController_generateDigitByAgencyOrAccount
+      tags: [sr003 - generate verifier digit]
+      parameters:
+        - $ref: '#/components/parameters/HeadersQualidade'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateVerifierDigitDto'
+      responses:
+        "201":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DigitoVerificadorResponse'
+
+  /v2/sr004/buscar-conta-pj:
+    get:
+      summary: Buscar pessoa jurídica
+      operationId: SearchLegalEntityAccountController_generateLegalPersons
+      tags: [sr004 - search legal entity account]
+      parameters:
+        - name: ambiente
+          in: query
+          schema:
+            type: string
+            enum: [HM, DS]
+            default: HM
+        - name: quantidade
+          in: query
+          required: true
+          schema:
+            type: number
+        - name: cnpjAlfanumerico
+          in: query
+          schema:
+            type: boolean
+        - $ref: '#/components/parameters/HeadersQualidade'
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchPJResponse'
+
+  /v2/sr005/buscar-chave-j/MCIPJ/{MCIPJ}/MCIPF/{MCIPF}:
+    get:
+      summary: Buscar ChaveJ
+      operationId: SearchKeyJController_searchKeyJ
+      tags: [sr005 - search key j]
+      parameters:
+        - name: ambiente
+          in: query
+          schema:
+            type: string
+            enum: [HM, DS]
+            default: HM
+        - name: MCIPJ
+          in: path
+          required: true
+          schema:
+            type: number
+        - name: MCIPF
+          in: path
+          required: true
+          schema:
+            type: number
+        - $ref: '#/components/parameters/HeadersQualidade'
+      responses:
+        "201":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchKeyJResponse'
+
+  /v2/sr006/resetar-senha-chavej:
+    post:
+      summary: Resetar senha ChaveJ
+      operationId: ResetPasswordKeyJController_resetKeyJPassword
+      tags: [sr006 - reset password key j]
+      parameters:
+        - $ref: '#/components/parameters/HeadersQualidade'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordKeyJDto'
+      responses:
+        "201":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetSenhaChaveJResponse'
+
+  /v2/sr007/resetar-senha-pf:
+    post:
+      summary: Resetar senha PF
+      operationId: ResetPasswordPhysicalPersonController_resetPasswords
+      tags: [sr007 - reset password physical person]
+      parameters:
+        - $ref: '#/components/parameters/HeadersQualidade'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordPhysicalPersonDto'
+      responses:
+        "201":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetSenhaPFResponse'
+
+  /v2/sr008/liberar-mobile-conta-digital-pj:
+    post:
+      summary: Liberar conta digital mobile PJ
+      operationId: MobileReleasePjOpeningController_releaseMobileDigitalAccountPJ
+      tags: [sr008 - mobile release pj opening]
+      parameters:
+        - $ref: '#/components/parameters/HeadersQualidade'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MobileReleasePjOpeningDto'
+      responses:
+        "201":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MobileReleaseResponse'
+
+  /v2/sr009/modalidades/tipo-pessoa/{tipoPessoa}:
+    get:
+      summary: Listar modalidades
+      operationId: CreateCardAccountController_getModality
+      tags: [sr009 - create card account]
+      parameters:
+        - name: ambiente
+          in: query
+          schema:
+            type: string
+            enum: [HM, DS]
+            default: HM
+        - name: tipoPessoa
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [PF, PJ]
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModalidadeResponse'
+
+components:
+  parameters:
+    HeadersQualidade:
+      name: x-headers-qualidade
+      in: header
+      required: false
+      schema:
+        type: string
+      description: Headers de autenticação Qualidade (SSO / OAuth / Projeto / Script / UOR)
+
+  schemas:
+    GenerateVerifierDigitDto:
+      type: object
+      properties:
+        agencia:
+          type: string
+        conta:
+          type: string
+
+    ResetPasswordKeyJDto:
+      type: object
+      properties:
+        chaveJ:
+          type: string
+
+    ResetPasswordPhysicalPersonDto:
+      type: object
+      properties:
+        agencia:
+          type: string
+        conta:
+          type: string
+
+    MobileReleasePjOpeningDto:
+      type: object
+      properties:
+        cpf:
+          type: string
+        cnpj:
+          type: string
+
+    SearchPFResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+
+    SearchPJResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+
+    SearchKeyJResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+
+    DigitoVerificadorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+
+    ResetSenhaChaveJResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+
+    ResetSenhaPFResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+
+    MobileReleaseResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+        success:
+          type: boolean
+
+    ModalidadeResponse:
+      type: object
+      properties:
+        quantidadeOcorrencia:
+          type: number
+        listaOcorrenciaLinha:
+          type: array
+          items:
+            type: object
+            properties:
+              codigoModalidade:
+                type: number
+              textoModalidade:
+                type: string

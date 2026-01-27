@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "id": "GetEpisode",
+    "source": "api",
+    "lastChangedBy": "api",
+    "introducedBy": "api",
+    "openapiVersion": "1.0.0",
+    "autoAdded": false,
+    "userRemoved": false
+  },
+  "entity": "Listar episódios",
+  "screen": {
+    "type": "form",
+    "mode": "filter"
+  },
+  "description": null,
+  "api": {
+    "operationId": "GetEpisode",
+    "endpoint": "/episode",
+    "method": "get",
+    "baseUrl": "https://rickandmortyapi.com/api",
+    "pathParams": [],
+    "queryParams": [
+      {
+        "name": "page",
+        "type": "integer",
+        "required": false,
+        "label": "Page",
+        "placeholder": null,
+        "options": null,
+        "defaultValue": null,
+        "hint": null,
+        "meta": {
+          "id": "query:page",
+          "source": "api",
+          "lastChangedBy": "api",
+          "introducedBy": "api",
+          "openapiVersion": "1.0.0",
+          "autoAdded": false,
+          "userRemoved": false
+        }
+      }
+    ]
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {
+    "primary": {
+      "type": "submit",
+      "label": "Buscar"
+    }
+  },
+  "data": {}
+}

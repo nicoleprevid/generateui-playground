@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nicoleprevid/generateui-playground#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "generate-ui": "file:../generateui"
   }
 }

@@ -1,14 +1,26 @@
 [
   {
-    "path": "GetAll",
-    "operationId": "GetAll"
+    "path": "GetCharacter",
+    "operationId": "GetCharacter"
   },
   {
-    "path": "GetNameByName",
-    "operationId": "GetNameByName"
+    "path": "GetCharacterById",
+    "operationId": "GetCharacterById"
   },
   {
-    "path": "GetRegionByRegion",
-    "operationId": "GetRegionByRegion"
+    "path": "GetEpisode",
+    "operationId": "GetEpisode"
+  },
+  {
+    "path": "GetEpisodeById",
+    "operationId": "GetEpisodeById"
+  },
+  {
+    "path": "GetLocation",
+    "operationId": "GetLocation"
+  },
+  {
+    "path": "GetLocationById",
+    "operationId": "GetLocationById"
   }
 ]

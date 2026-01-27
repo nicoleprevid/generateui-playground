@@ -1,5 +1,7 @@
-import { generatedRoutes } from './generated/routes.gen'
+import { Routes } from '@angular/router'
+import { generatedRoutes } from "../generate-ui/routes.gen";
 
-export const routes = [
+export const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'ListCharacters' },
   ...generatedRoutes
 ]

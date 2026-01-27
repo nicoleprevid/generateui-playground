@@ -1,0 +1,38 @@
+[
+  {
+    "path": "GetCharacter",
+    "operationId": "GetCharacter",
+    "label": "Listar Personagens",
+    "group": "Characters"
+  },
+  {
+    "path": "GetCharacterById",
+    "operationId": "GetCharacterById",
+    "label": "Buscar Personagem Por ID",
+    "group": "Characters"
+  },
+  {
+    "path": "GetEpisode",
+    "operationId": "GetEpisode",
+    "label": "Listar EpisóDios",
+    "group": "Episodes"
+  },
+  {
+    "path": "GetEpisodeById",
+    "operationId": "GetEpisodeById",
+    "label": "Buscar EpisóDio Por ID",
+    "group": "Episodes"
+  },
+  {
+    "path": "GetLocation",
+    "operationId": "GetLocation",
+    "label": "Listar LocalizaçõEs",
+    "group": "Locations"
+  },
+  {
+    "path": "GetLocationById",
+    "operationId": "GetLocationById",
+    "label": "Buscar LocalizaçãO Por ID",
+    "group": "Locations"
+  }
+]

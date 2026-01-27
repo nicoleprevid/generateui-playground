@@ -11,4 +11,12 @@ import { NgIf } from '@angular/common'
 export class UiFieldComponent {
   @Input() label = ''
   @Input() hint = ''
+  @Input() info = ''
+  infoOpen = false
+
+  toggleInfo(event: MouseEvent) {
+    event.preventDefault()
+    event.stopPropagation()
+    this.infoOpen = !this.infoOpen
+  }
 }

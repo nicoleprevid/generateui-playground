@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "id": "GetLocationById",
+    "source": "api",
+    "lastChangedBy": "api",
+    "introducedBy": "api",
+    "openapiVersion": "1.0.0",
+    "autoAdded": false,
+    "userRemoved": false
+  },
+  "entity": "Buscar localização por ID",
+  "screen": {
+    "type": "form",
+    "mode": "filter"
+  },
+  "description": null,
+  "api": {
+    "operationId": "GetLocationById",
+    "endpoint": "/location/{id}",
+    "method": "get",
+    "baseUrl": "https://rickandmortyapi.com/api",
+    "pathParams": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "label": "Id",
+        "placeholder": "Id",
+        "options": null,
+        "defaultValue": null,
+        "hint": null,
+        "meta": {
+          "id": "path:id",
+          "source": "api",
+          "lastChangedBy": "api",
+          "introducedBy": "api",
+          "openapiVersion": "1.0.0",
+          "autoAdded": false,
+          "userRemoved": false
+        }
+      }
+    ],
+    "queryParams": []
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {
+    "primary": {
+      "type": "submit",
+      "label": "Buscar"
+    }
+  },
+  "data": {}
+}
