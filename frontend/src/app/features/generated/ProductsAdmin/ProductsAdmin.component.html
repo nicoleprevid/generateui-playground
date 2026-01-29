@@ -1,0 +1,60 @@
+
+<div class="page">
+  <ui-card title="Products Admin" subtitle="GET /products">
+    <div class="actions admin-actions">
+      <ui-button variant="primary" (click)="refresh()">Refresh</ui-button>
+      <ui-button variant="danger" [disabled]="!selected.size" (click)="confirmBulkDelete()">Delete selected</ui-button>
+    </div>
+  </ui-card>
+
+  <ng-container *ngIf="error$ | async as error">
+    <div class="result-error" *ngIf="error">
+      <strong>Request failed.</strong>
+      <div class="result-error__body">
+        {{ formatError(error) }}
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="result$ | async as result">
+    
+    <div class="result-cards" *ngIf="isArrayResult(result)">
+      <article class="card-tile" *ngFor="let row of getRows(result)">
+        <div class="card-media" *ngIf="getCardImage(row)">
+          <img [src]="getCardImage(row)" [alt]="getCardTitle(row)" />
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <input type="checkbox" [checked]="isSelected(row)" (click)="$event.stopPropagation()" (change)="toggleRow(row, $event.target.checked)" />
+            <h3 class="card-title">{{ getCardTitle(row) }}</h3>
+          </div>
+          <p class="card-subtitle" *ngIf="getCardSubtitle(row)">
+            {{ getCardSubtitle(row) }}
+          </p>
+          <div class="card-actions" (click)="$event.stopPropagation()">
+            <button class="link" type="button" (click)="openDetail(row)">Details</button>
+            <button class="link" type="button" (click)="openEdit(row)">Edit</button>
+            <button class="link danger" type="button" (click)="confirmDelete([getRowId(row)])">Delete</button>
+          </div>
+        </div>
+      </article>
+    </div>
+    
+
+    <details class="result-raw" *ngIf="result">
+      <summary>Raw response</summary>
+      <pre>{{ result | json }}</pre>
+    </details>
+  </ng-container>
+
+  <div class="confirm-backdrop" *ngIf="confirmIds.length">
+    <div class="confirm-modal">
+      <h3>Confirm delete</h3>
+      <p>Are you sure you want to delete the selected item(s)? This action cannot be undone.</p>
+      <div class="actions">
+        <ui-button variant="ghost" (click)="cancelDelete()">Cancel</ui-button>
+        <ui-button variant="danger" (click)="deleteConfirmed()">Delete</ui-button>
+      </div>
+    </div>
+  </div>
+</div>

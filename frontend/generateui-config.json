@@ -1,0 +1,19 @@
+{
+  "appTitle": "Store",
+  "defaultRoute": "",
+  "menu": {
+    "autoInject": true
+  },
+  "views": {
+    "ProductsAdmin": "cards",
+    "getProducts": "list",
+    "CharacterAdmin": "cards",
+    "GetCharacter": "list",
+    "EpisodeAdmin": "cards",
+    "GetEpisode": "list",
+    "LocationAdmin": "cards",
+    "GetLocation": "cards",
+    "AllAdmin": "cards",
+    "GetAll": "list"
+  }
+}

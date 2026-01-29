@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "getProducts",
+    "source": "api",
+    "lastChangedBy": "api",
+    "introducedBy": "api",
+    "openapiVersion": "1.0.0",
+    "autoAdded": false,
+    "userRemoved": false
+  },
+  "entity": "Get all products",
+  "screen": {
+    "type": "view",
+    "mode": "readonly"
+  },
+  "description": null,
+  "api": {
+    "operationId": "getProducts",
+    "endpoint": "/products",
+    "method": "get",
+    "baseUrl": "https://dummyjson.com",
+    "pathParams": [],
+    "queryParams": []
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {},
+  "data": {}
+}

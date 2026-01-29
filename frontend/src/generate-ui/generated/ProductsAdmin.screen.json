@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "intelligent": {
+      "kind": "adminList",
+      "label": "Products Admin",
+      "group": "Products",
+      "listOperationId": "getProducts",
+      "detailOperationId": "getProductById",
+      "updateOperationId": "updateProduct",
+      "deleteOperationId": "deleteProduct",
+      "idParam": "id"
+    }
+  },
+  "entity": "Products",
+  "description": "Smart admin list generated from collection endpoints.",
+  "api": {
+    "operationId": "ProductsAdmin",
+    "method": "get",
+    "endpoint": "/products"
+  }
+}

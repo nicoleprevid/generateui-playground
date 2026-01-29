@@ -3,75 +3,75 @@ import { Routes } from '@angular/router'
 
 export const generatedRoutes: Routes = [
   {
-    path: 'getCharacter',
+    path: 'productsAdmin',
     loadComponent: () =>
-      import('../app/features/GetCharacter/GetCharacter.component')
-        .then(m => m.GetCharacterComponent)
+      import('../app/features/overrides/ProductsAdmin/ProductsAdmin.component')
+        .then(m => m.ProductsAdminComponent)
   },
   {
-    path: 'GetCharacter',
+    path: 'ProductsAdmin',
     loadComponent: () =>
-      import('../app/features/GetCharacter/GetCharacter.component')
-        .then(m => m.GetCharacterComponent)
+      import('../app/features/overrides/ProductsAdmin/ProductsAdmin.component')
+        .then(m => m.ProductsAdminComponent)
   },
   {
-    path: 'getCharacterById',
+    path: 'createProduct',
     loadComponent: () =>
-      import('../app/features/GetCharacterById/GetCharacterById.component')
-        .then(m => m.GetCharacterByIdComponent)
+      import('../app/features/overrides/CreateProduct/CreateProduct.component')
+        .then(m => m.CreateProductComponent)
   },
   {
-    path: 'GetCharacterById',
+    path: 'CreateProduct',
     loadComponent: () =>
-      import('../app/features/GetCharacterById/GetCharacterById.component')
-        .then(m => m.GetCharacterByIdComponent)
+      import('../app/features/overrides/CreateProduct/CreateProduct.component')
+        .then(m => m.CreateProductComponent)
   },
   {
-    path: 'getEpisode',
+    path: 'deleteProduct',
     loadComponent: () =>
-      import('../app/features/GetEpisode/GetEpisode.component')
-        .then(m => m.GetEpisodeComponent)
+      import('../app/features/overrides/DeleteProduct/DeleteProduct.component')
+        .then(m => m.DeleteProductComponent)
   },
   {
-    path: 'GetEpisode',
+    path: 'DeleteProduct',
     loadComponent: () =>
-      import('../app/features/GetEpisode/GetEpisode.component')
-        .then(m => m.GetEpisodeComponent)
+      import('../app/features/overrides/DeleteProduct/DeleteProduct.component')
+        .then(m => m.DeleteProductComponent)
   },
   {
-    path: 'getEpisodeById',
+    path: 'getProductById',
     loadComponent: () =>
-      import('../app/features/GetEpisodeById/GetEpisodeById.component')
-        .then(m => m.GetEpisodeByIdComponent)
+      import('../app/features/overrides/GetProductById/GetProductById.component')
+        .then(m => m.GetProductByIdComponent)
   },
   {
-    path: 'GetEpisodeById',
+    path: 'GetProductById',
     loadComponent: () =>
-      import('../app/features/GetEpisodeById/GetEpisodeById.component')
-        .then(m => m.GetEpisodeByIdComponent)
+      import('../app/features/overrides/GetProductById/GetProductById.component')
+        .then(m => m.GetProductByIdComponent)
   },
   {
-    path: 'getLocation',
+    path: 'getProducts',
     loadComponent: () =>
-      import('../app/features/GetLocation/GetLocation.component')
-        .then(m => m.GetLocationComponent)
+      import('../app/features/overrides/GetProducts/GetProducts.component')
+        .then(m => m.GetProductsComponent)
   },
   {
-    path: 'GetLocation',
+    path: 'GetProducts',
     loadComponent: () =>
-      import('../app/features/GetLocation/GetLocation.component')
-        .then(m => m.GetLocationComponent)
+      import('../app/features/overrides/GetProducts/GetProducts.component')
+        .then(m => m.GetProductsComponent)
   },
   {
-    path: 'getLocationById',
+    path: 'updateProduct',
     loadComponent: () =>
-      import('../app/features/GetLocationById/GetLocationById.component')
-        .then(m => m.GetLocationByIdComponent)
+      import('../app/features/overrides/UpdateProduct/UpdateProduct.component')
+        .then(m => m.UpdateProductComponent)
   },
   {
-    path: 'GetLocationById',
+    path: 'UpdateProduct',
     loadComponent: () =>
-      import('../app/features/GetLocationById/GetLocationById.component')
-        .then(m => m.GetLocationByIdComponent)
+      import('../app/features/overrides/UpdateProduct/UpdateProduct.component')
+        .then(m => m.UpdateProductComponent)
   }
 ]

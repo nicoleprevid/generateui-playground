@@ -1,0 +1,192 @@
+openapi: 3.0.3
+
+info:
+  title: DummyJSON Products API
+  description: Fake REST API for products with realistic data. Ideal for demos and CRUD examples.
+  version: 1.0.0
+
+servers:
+  - url: https://dummyjson.com
+    description: DummyJSON public API
+
+paths:
+  /products:
+    get:
+      summary: Get all products
+      operationId: getProducts
+      tags:
+        - Products
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Product'
+                  total:
+                    type: integer
+                  skip:
+                    type: integer
+                  limit:
+                    type: integer
+
+  /products/{id}:
+    get:
+      summary: Get product by ID
+      operationId: getProductById
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Product details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+    put:
+      summary: Update a product
+      operationId: updateProduct
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Updated product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+    delete:
+      summary: Delete a product
+      operationId: deleteProduct
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Deleted product
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  isDeleted:
+                    type: boolean
+                  deletedOn:
+                    type: string
+                    format: date-time
+
+  /products/add:
+    post:
+      summary: Create a new product
+      operationId: createProduct
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '201':
+          description: Created product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+        discountPercentage:
+          type: number
+          format: float
+        rating:
+          type: number
+          format: float
+        stock:
+          type: integer
+        brand:
+          type: string
+        category:
+          type: string
+        thumbnail:
+          type: string
+          format: uri
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+
+    ProductInput:
+      type: object
+      required:
+        - title
+        - price
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+        discountPercentage:
+          type: number
+          format: float
+        rating:
+          type: number
+          format: float
+        stock:
+          type: integer
+        brand:
+          type: string
+        category:
+          type: string
+        thumbnail:
+          type: string
+          format: uri

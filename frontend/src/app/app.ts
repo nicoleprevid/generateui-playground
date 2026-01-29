@@ -4,12 +4,11 @@ import { UiMenuComponent } from './ui/ui-menu/ui-menu.component';
 
 @Component({
   selector: 'app-root',
-  imports: [UiMenuComponent, RouterOutlet, UiMenuComponent],
+  imports: [RouterOutlet, UiMenuComponent,                                                       RouterOutlet, UiMenuComponent,   RouterOutlet, UiMenuComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  
-  protected readonly appTitle = signal('Rick & Morty Admin');
-protected readonly title = signal('frontend');
+  protected readonly appTitle = signal('Store');
+  protected readonly title = signal('frontend');
 }

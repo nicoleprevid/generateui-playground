@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "id": "deleteProduct",
+    "source": "api",
+    "lastChangedBy": "api",
+    "introducedBy": "api",
+    "openapiVersion": "1.0.0",
+    "autoAdded": false,
+    "userRemoved": false
+  },
+  "entity": "Delete a product",
+  "screen": {
+    "type": "view",
+    "mode": "readonly"
+  },
+  "description": null,
+  "api": {
+    "operationId": "deleteProduct",
+    "endpoint": "/products/{id}",
+    "method": "delete",
+    "baseUrl": "https://dummyjson.com",
+    "pathParams": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "label": "Id",
+        "placeholder": "Id",
+        "options": null,
+        "defaultValue": null,
+        "hint": null,
+        "meta": {
+          "id": "path:id",
+          "source": "api",
+          "lastChangedBy": "api",
+          "introducedBy": "api",
+          "openapiVersion": "1.0.0",
+          "autoAdded": false,
+          "userRemoved": false
+        }
+      }
+    ],
+    "queryParams": []
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [],
+  "actions": {},
+  "data": {}
+}

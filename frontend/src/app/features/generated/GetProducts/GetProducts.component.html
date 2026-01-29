@@ -1,0 +1,79 @@
+
+<div class="page">
+  <ui-card title="Get all products" subtitle="GET /products">
+    <div class="actions">
+      <ui-button
+        variant="primary"
+        [disabled]="form.invalid"
+        (click)="submit()"
+      >
+        Carregar
+      </ui-button>
+    </div>
+  </ui-card>
+
+  
+  <ng-container *ngIf="error$ | async as error">
+    <div class="result-error" *ngIf="error">
+      <strong>Request failed.</strong>
+      <div class="result-error__body">
+        {{ formatError(error) }}
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="result$ | async as result">
+    <div class="result-table" *ngIf="isArrayResult(result)">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th *ngFor="let column of getColumns(result)">
+              {{ formatHeader(column) }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of getRows(result)">
+            <td *ngFor="let column of getColumns(result)">
+              <img
+                *ngIf="isImageCell(row, column)"
+                [src]="getCellValue(row, column)"
+                [alt]="formatHeader(column)"
+                class="cell-image"
+              />
+              <span *ngIf="!isImageCell(row, column)">
+                {{ getCellValue(row, column) }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result-card" *ngIf="!isArrayResult(result) && hasObjectRows(result)">
+      <div class="result-card__grid">
+        <div class="result-card__row" *ngFor="let row of getObjectRows(result)">
+          <span class="result-card__label">
+            {{ formatHeader(row.key) }}
+          </span>
+          <span class="result-card__value">
+            {{ row.value }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-single" *ngIf="!isArrayResult(result) && isSingleValue(result)">
+      <strong>Result</strong>
+      <div class="result-single__value">
+        {{ formatValue(result) }}
+      </div>
+    </div>
+
+    <details class="result-raw" *ngIf="result">
+      <summary>Raw response</summary>
+      <pre>{{ result | json }}</pre>
+    </details>
+  </ng-container>
+  
+</div>

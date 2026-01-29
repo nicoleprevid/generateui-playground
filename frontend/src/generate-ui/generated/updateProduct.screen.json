@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "id": "updateProduct",
+    "source": "api",
+    "lastChangedBy": "api",
+    "introducedBy": "api",
+    "openapiVersion": "1.0.0",
+    "autoAdded": false,
+    "userRemoved": false
+  },
+  "entity": "Update a product",
+  "screen": {
+    "type": "form",
+    "mode": "edit"
+  },
+  "description": null,
+  "api": {
+    "operationId": "updateProduct",
+    "endpoint": "/products/{id}",
+    "method": "put",
+    "baseUrl": "https://dummyjson.com",
+    "pathParams": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "label": "Id",
+        "placeholder": "Id",
+        "options": null,
+        "defaultValue": null,
+        "hint": null,
+        "meta": {
+          "id": "path:id",
+          "source": "api",
+          "lastChangedBy": "api",
+          "introducedBy": "api",
+          "openapiVersion": "1.0.0",
+          "autoAdded": false,
+          "userRemoved": false
+        }
+      }
+    ],
+    "queryParams": []
+  },
+  "layout": {
+    "type": "single"
+  },
+  "fields": [
+    {
+      "name": "title",
+      "type": "string",
+      "required": true,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:title",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:description",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "required": true,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:price",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "discountPercentage",
+      "type": "number",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:discountPercentage",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "rating",
+      "type": "number",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:rating",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "stock",
+      "type": "integer",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:stock",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "brand",
+      "type": "string",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:brand",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:category",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    },
+    {
+      "name": "thumbnail",
+      "type": "string",
+      "required": false,
+      "label": null,
+      "placeholder": null,
+      "ui": null,
+      "options": null,
+      "defaultValue": null,
+      "validations": [],
+      "meta": {
+        "id": "body:thumbnail",
+        "source": "api",
+        "lastChangedBy": "api",
+        "introducedBy": "api",
+        "openapiVersion": "1.0.0",
+        "autoAdded": false,
+        "userRemoved": false
+      }
+    }
+  ],
+  "actions": {
+    "primary": {
+      "type": "submit",
+      "label": "Salvar"
+    }
+  },
+  "data": {}
+}

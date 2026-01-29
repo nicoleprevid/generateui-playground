@@ -1,38 +1,38 @@
 [
   {
-    "path": "GetCharacter",
-    "operationId": "GetCharacter",
-    "label": "Listar Personagens",
-    "group": "Characters"
+    "path": "getProducts",
+    "operationId": "getProducts",
+    "label": "Get All Products",
+    "group": "Products"
   },
   {
-    "path": "GetCharacterById",
-    "operationId": "GetCharacterById",
-    "label": "Buscar Personagem Por ID",
-    "group": "Characters"
+    "path": "getProductById",
+    "operationId": "getProductById",
+    "label": "Get Product By ID",
+    "group": "Products"
   },
   {
-    "path": "GetEpisode",
-    "operationId": "GetEpisode",
-    "label": "Listar EpisóDios",
-    "group": "Episodes"
+    "path": "updateProduct",
+    "operationId": "updateProduct",
+    "label": "Update A Product",
+    "group": "Products"
   },
   {
-    "path": "GetEpisodeById",
-    "operationId": "GetEpisodeById",
-    "label": "Buscar EpisóDio Por ID",
-    "group": "Episodes"
+    "path": "deleteProduct",
+    "operationId": "deleteProduct",
+    "label": "Delete A Product",
+    "group": "Products"
   },
   {
-    "path": "GetLocation",
-    "operationId": "GetLocation",
-    "label": "Listar LocalizaçõEs",
-    "group": "Locations"
+    "path": "createProduct",
+    "operationId": "createProduct",
+    "label": "Create A New Product",
+    "group": "Products"
   },
   {
-    "path": "GetLocationById",
-    "operationId": "GetLocationById",
-    "label": "Buscar LocalizaçãO Por ID",
-    "group": "Locations"
+    "path": "ProductsAdmin",
+    "operationId": "ProductsAdmin",
+    "label": "Products Admin",
+    "group": "Products"
   }
 ]

@@ -1,50 +1,38 @@
 {
   "groups": [
     {
-      "id": "characters",
-      "label": "Characters",
+      "id": "products",
+      "label": "Products",
       "items": [
         {
-          "id": "GetCharacter",
-          "label": "Listar Personagens",
-          "route": "GetCharacter"
+          "id": "getProducts",
+          "label": "Get All Products",
+          "route": "getProducts"
         },
         {
-          "id": "GetCharacterById",
-          "label": "Buscar Personagem Por ID",
-          "route": "GetCharacterById"
-        }
-      ]
-    },
-    {
-      "id": "episodes",
-      "label": "Episodes",
-      "items": [
-        {
-          "id": "GetEpisode",
-          "label": "Listar EpisóDios",
-          "route": "GetEpisode"
+          "id": "getProductById",
+          "label": "Get Product By ID",
+          "route": "getProductById"
         },
         {
-          "id": "GetEpisodeById",
-          "label": "Buscar EpisóDio Por ID",
-          "route": "GetEpisodeById"
-        }
-      ]
-    },
-    {
-      "id": "locations",
-      "label": "Locations",
-      "items": [
-        {
-          "id": "GetLocation",
-          "label": "Listar LocalizaçõEs",
-          "route": "GetLocation"
+          "id": "updateProduct",
+          "label": "Update A Product",
+          "route": "updateProduct"
         },
         {
-          "id": "GetLocationById",
-          "label": "Buscar LocalizaçãO Por ID",
-          "route": "GetLocationById"
+          "id": "deleteProduct",
+          "label": "Delete A Product",
+          "route": "deleteProduct"
+        },
+        {
+          "id": "createProduct",
+          "label": "Create A New Product",
+          "route": "createProduct"
+        },
+        {
+          "id": "ProductsAdmin",
+          "label": "Products Admin",
+          "route": "ProductsAdmin"
         }
       ]
     }

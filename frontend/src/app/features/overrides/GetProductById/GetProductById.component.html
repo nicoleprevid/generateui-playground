@@ -1,0 +1,132 @@
+
+<div class="page">
+  <ui-card [title]="schema.entity || schema.api.operationId" [subtitle]="schema.api.method.toUpperCase() + ' ' + schema.api.endpoint">
+    <p class="screen-description" *ngIf="schema.description">
+      {{ schema.description }}
+    </p>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-grid">
+        <div class="form-field" *ngFor="let field of formFields">
+          <ui-select
+            *ngIf="isSelect(field)"
+            [label]="field.label || field.name"
+            [hint]="field.hint"
+            [info]="field.info"
+            [controlName]="field.name"
+            [options]="getSelectOptions(field)"
+            [invalid]="isInvalid(field)"
+          ></ui-select>
+
+          <ui-textarea
+            *ngIf="isTextarea(field)"
+            [label]="field.label || field.name"
+            [hint]="field.hint"
+            [info]="field.info"
+            [controlName]="field.name"
+            [rows]="3"
+            [placeholder]="field.placeholder || field.label || field.name"
+            [invalid]="isInvalid(field)"
+          ></ui-textarea>
+
+          <ui-checkbox
+            *ngIf="isCheckbox(field)"
+            [label]="field.label || field.name"
+            [hint]="field.hint"
+            [info]="field.info"
+            [controlName]="field.name"
+            [invalid]="isInvalid(field)"
+          ></ui-checkbox>
+
+          <ui-input
+            *ngIf="!isSelect(field) && !isTextarea(field) && !isCheckbox(field)"
+            [label]="field.label || field.name"
+            [hint]="field.hint"
+            [info]="field.info"
+            [type]="inputType(field)"
+            [controlName]="field.name"
+            [placeholder]="field.placeholder || field.label || field.name"
+            [invalid]="isInvalid(field)"
+          ></ui-input>
+
+          <span class="field-error" *ngIf="isInvalid(field)">
+            Campo obrigatório
+          </span>
+        </div>
+      </div>
+      <div class="actions">
+        <ui-button
+          type="submit"
+          variant="primary"
+          [disabled]="form.invalid"
+        >
+          Buscar
+        </ui-button>
+      </div>
+    </form>
+  </ui-card>
+
+  
+  <ng-container *ngIf="error$ | async as error">
+    <div class="result-error" *ngIf="error">
+      <strong>Request failed.</strong>
+      <div class="result-error__body">
+        {{ formatError(error) }}
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="result$ | async as result">
+    <div class="result-table" *ngIf="isArrayResult(result)">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th *ngFor="let column of getColumns(result)">
+              {{ formatHeader(column) }}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of getRows(result)">
+            <td *ngFor="let column of getColumns(result)">
+              <img
+                *ngIf="isImageCell(row, column)"
+                [src]="getCellValue(row, column)"
+                [alt]="formatHeader(column)"
+                class="cell-image"
+              />
+              <span *ngIf="!isImageCell(row, column)">
+                {{ getCellValue(row, column) }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="result-card" *ngIf="!isArrayResult(result) && hasObjectRows(result)">
+      <div class="result-card__grid">
+        <div class="result-card__row" *ngFor="let row of getObjectRows(result)">
+          <span class="result-card__label">
+            {{ formatHeader(row.key) }}
+          </span>
+          <span class="result-card__value">
+            {{ row.value }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-single" *ngIf="!isArrayResult(result) && isSingleValue(result)">
+      <strong>Result</strong>
+      <div class="result-single__value">
+        {{ formatValue(result) }}
+      </div>
+    </div>
+
+    <details class="result-raw" *ngIf="result">
+      <summary>Raw response</summary>
+      <pre>{{ result | json }}</pre>
+    </details>
+  </ng-container>
+  
+</div>
